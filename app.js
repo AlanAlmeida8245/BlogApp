@@ -36,10 +36,18 @@ require("./config/auth")(passport)
 /////
 //Configurações
         //Sessão
+        app.use(cors());
+            app.use(passport.initialize())
+            app.use(passport.session())
+            app.use(flash())
+            
+        app.set('trust proxy', 1);
+
         app.use(session({
-            cookie:{
+            cookie:
+            {
                 secure: true,
-                maxAge:60000
+                maxAge:80000
                    },
                    store: MongoStore.create({mongoUrl: 'mongodb+srv://AlanAlmeida:83193879@blognodejs.zpece2v.mongodb.net/?retryWrites=true&w=majority'}),
             secret: 'blog',
@@ -53,12 +61,7 @@ require("./config/auth")(passport)
             }
             next() //otherwise continue
             });
-            app.use(cors());
-            app.use(passport.initialize())
-            app.use(passport.session())
             
-
-            app.use(flash())
 
 
         //Middleware

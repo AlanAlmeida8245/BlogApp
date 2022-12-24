@@ -59,9 +59,11 @@ router.post("/registro", (req,res) => {
                                 novoUsuario.save().then(() => {
                                         req.flash("success_msg", "Usuário Cadastrado com Sucesso")
                                         res.redirect("/")
+                                        console.log("Usuario foi Cadastrado")
                                 }).catch((error) => {
                                         req.flash("error_msg", "Houve um erro ao criar o usúario, tente novamente" + error)
                                         res.redirect("/usuarios/registro")
+                                        console.log("erro ao cadastrar: " + error)
                                 })
                             })
                         })
