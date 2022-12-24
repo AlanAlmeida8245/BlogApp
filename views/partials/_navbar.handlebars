@@ -54,7 +54,7 @@
           color: #FFF;
       }
       nav ul li a:hover, nav ul li a:visited:hover {
-          background: rgb(0, 0, 0);
+          background: rgb(49, 49, 49);
           color: #ffffff;
       }
       .navbar-dropdown li a{
@@ -176,7 +176,10 @@
         </li>
          {{#if user}}
           <li style="color: lightgreen;">
-              Bem Vindo {{user.nome}}
+              <a href="#" >Bem Vindo {{user.nome}}</a>
+          </li>
+          <li>
+            <a href="/usuarios/logout">Sair</a>
           </li>
           {{#if user.eAdmin}}
             <li>
@@ -195,7 +198,7 @@
           </li>
           <li>
           {{/if}}
-          
+            <li>
             <a href="/categorias">Categorias</a>
           </li>
         </li>
