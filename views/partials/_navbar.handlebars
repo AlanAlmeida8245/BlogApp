@@ -20,15 +20,16 @@
             <a  style="color: #ffff;" class="nav-link " href="/usuarios/logout">Sair</a>
                  </li>
                  <li class="nav-item">
-                      <a style="color: #ffff; " class="nav-link active" aria-current="page" href="/admin/categoria/add">Criar Categoria</a>
+                     <h1 style="color: lightgreen;">{{user.nome}}</h1>
                  </li>
                  {{#if user.eAdmin}}
                     <li class="nav-item">
-                      <a style="color: #ffff; " class="nav-link active" aria-current="page" href="/admin/postagem/add">Criar Postagem</a>
+                      <a style="color: lightblue; " class="nav-link active" aria-current="page" href="/admin/categoria/add">Criar Categoria</a>
                  </li>
                  <li class="nav-item">
-                      <h4 class="nav-link" style="color: salmon;">Criar Postagem<h4>
+                      <a style="color: salmon; " class="nav-link active" aria-current="page" href="/admin/postagem/add">Criar Postagem</a>
                  </li>
+               
                   {{else}}
                  {{/if}}
           {{else}} 
