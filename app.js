@@ -37,10 +37,8 @@ require("./config/auth")(passport)
 //Configurações
         //Sessão
         app.use(cors());
-            app.use(passport.initialize())
-            app.use(passport.session())
-            app.use(flash())
             
+
         app.set('trust proxy', 1);
 
         app.use(session({
@@ -54,6 +52,10 @@ require("./config/auth")(passport)
             saveUninitialized: true,
             resave: false
             }));
+
+            app.use(passport.initialize())
+            app.use(passport.session())
+            app.use(flash())
             
             app.use(function(req,res,next){
             if(!req.session){
@@ -62,8 +64,6 @@ require("./config/auth")(passport)
             next() //otherwise continue
             });
             
-
-
         //Middleware
         app.use((req, res, next) => {
                 res.locals.success_msg = req.flash("success_msg")
@@ -78,7 +78,6 @@ require("./config/auth")(passport)
     app.use(bodyParser.urlencoded({
     extended: true
     }))
-    
     
         //HandleBars
         app.engine('handlebars', handlebars.engine({
