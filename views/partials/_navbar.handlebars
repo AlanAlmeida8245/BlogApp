@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: #fff;
   }
   
   .nav > .nav-header {
@@ -34,13 +35,14 @@
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
-    color: var(--cor-primaria);
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 
   }
   
   .nav > .nav-links > a:hover {
-    background-image: linear-gradient(90deg, #CB3C3B, #1D212A);
+    background-color: #fff;
+    color:rgba(0, 0, 0, 0.3)
   }
   
   .nav > #nav-check {
@@ -99,7 +101,7 @@
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
           <div class="nav-title">
-            <img src="imagens/perfil.jpeg" alt="" width="60px" style="border-radius: 50%;">
+              <h1>NodeJS</h1>
           </div>
         </div>
         <div class="nav-btn">
@@ -111,11 +113,18 @@
         </div>
         
         <div class="nav-links">
-          <a href="#historia">Minha Historia</a>
-          <a href="#especialidades" >Especialidades</a>
-          <a href="#habilidades" >Habilidades</a>
-          <a href="#projetos" >Projetos</a>
-          <a href="#contatos" >Contatos</a>
+          <a href="/">Home</a>
+          <a href="/categorias" >Categorias</a>
+          {{#if user}}
+           <h6 style="color:
+           lightgreen;">Bem-Vindo {{user.nome}}</h6>
+          <a href="/admin/postagens/add" >Criar Postagem</a>
+          <a href="/admin/categorias/add" >Criar Categoria</a>
+           <a href="/usuarios/logout" >Deslogar</a>
+           {{else}}
+            <a href="/usuarios/login" >Login</a>
+           <a href="/usuarios/registro" >Cadastrar</a>
+           {{/if}}
         </div>
       </div>
     </div>
